@@ -2,6 +2,14 @@
 name = "tclip"
 version = "0.1.0"
 edition = "2024"
+description = "A simple terminal clipboard application"
+authors = ["Yeabisra"]
 
 [dependencies]
 arboard = "3.6.1"
+
+[profile.release]
+opt-level = "z"     # Optimize for size
+lto = true          # Enable Link Time Optimization
+codegen-units = 1   # Reduce parallel code generation units to increase optimization
+strip = true        # Automatically strip symbols from the binary
