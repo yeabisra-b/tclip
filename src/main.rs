@@ -10,21 +10,11 @@ fn main() {
 
     match Clipboard::new() {
         Ok(mut ctx) => {
-            #[cfg(target_os = "linux")]
-            {
-                use arboard::SetExtLinux;
-                if let Err(e) = ctx.set().wait().text(buffer) {
-                    eprintln!("Failed to copy to clipboard: {}", e);
-                    std::process::exit(1);
-                }
+            if let Err(e) = ctx.set_text(buffer) {
+                eprintln!("Failed to copy to clipboard: {}", e);
+                std::process::exit(1);
             }
-            #[cfg(not(target_os = "linux"))]
-            {
-                if let Err(e) = ctx.set_text(buffer) {
-                    eprintln!("Failed to copy to clipboard: {}", e);
-                    std::process::exit(1);
-                }
-            }
+            println!("copied");
         }
         Err(e) => {
             eprintln!("Failed to initialize clipboard: {}", e);
