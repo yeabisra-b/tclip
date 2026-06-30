@@ -15,6 +15,7 @@ fn main() {
                 std::process::exit(1);
             }
             println!("copied");
+            std::thread::sleep(std::time::Duration::from_millis(50));
         }
         Err(e) => {
             eprintln!("Failed to initialize clipboard: {}", e);
