@@ -54,6 +54,24 @@ ls -la | tclip
 
 *(Note if youre in Lnux x11 and not using a clipboard manager because `tclip` exits immedietely after copying you will lose the content before you can paste it ).*
 
+## Uninstallation
+
+**If installed via Cargo:**
+```bash
+cargo uninstall tclip
+```
+
+**For Windows:**
+```powershell
+irm https://raw.githubusercontent.com/yeabisra-b/tclip/main/uninstall.ps1 | iex
+```
+
+**For Linux:**
+```bash
+curl -sSL https://raw.githubusercontent.com/yeabisra-b/tclip/main/uninstall.sh | bash
+```
+
 ## License
+
 
 This project is licensed under the MIT license.
